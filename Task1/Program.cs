@@ -12,7 +12,25 @@
 [“Russia”, “Denmark”, “Kazan”] → [] */
 
 
-string[] FilterShortString(string[] strings)
+string[] FilterShortStrings(string[] strings)
+{
+
+    int shortStringsCount = CountShortStrings(strings);
+    string[] result = new string[shortStringsCount];
+    int index = 0;
+
+    for (int i = 0; i < strings.Length; i++)
+    {
+        if (strings[i].Length <= 3)
+        {
+            result[index++] = strings[i];
+        }
+    }
+    return result;
+
+}
+
+static int CountShortStrings(string[] strings)
 {
     int count = 0;
 
@@ -24,28 +42,16 @@ string[] FilterShortString(string[] strings)
         }
     }
 
+    return count;
 }
 
-string[] result = new string[count];
-int index = 0;
-
-for (int i = 0; i < strings.Length; i++)
-{
-    if (strings[i].Length <= 3)
-    {
-        result[index] = strings[i];
-        index++;
-    }
-}
-
-return result;
 
 
 Console.WriteLine("Input few short strings separated by spaces: ");
 string input = Console.ReadLine();
 string[] strings = input.Split(' ');
 
-string[] result = FilterShortString(strings);
+string[] result = FilterShortStrings(strings);
 
 Console.WriteLine("Filtered strings: ");
 Console.WriteLine(string.Join(", ", result));
