@@ -11,3 +11,11 @@
 [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 [“Russia”, “Denmark”, “Kazan”] → [] */
 
+Console.WriteLine("Input few short strings separated by spaces: ");
+string input = Console.ReadLine();
+string[] strings = input.Split(' ');
+
+string[] result = FilterShortString(strings);
+
+Console.WriteLine("Filtered strings: ");
+Console.WriteLine(string.Join(", ", result));
